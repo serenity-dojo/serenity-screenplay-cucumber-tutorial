@@ -1,5 +1,6 @@
 package serenitydojo.swaglabs;
 
+import net.serenitybdd.junit5.StepsInjectorTestInstancePostProcessor;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
 import net.serenitybdd.screenplay.actions.Click;
@@ -15,7 +16,9 @@ import net.thucydides.core.annotations.Managed;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.openqa.selenium.WebDriver;
 
@@ -47,22 +50,22 @@ public class LoggingOnTests {
         );
     }
 
-//    @DisplayName("When a user provides incorrect credentials they should be refused access")
-//    @ParameterizedTest
-//    @CsvSource({
-//            "standard_user, wrong_password, 'Username and password do not match any user in this service'",
-//            "unknown_user, secret_sauce, 'Username and password do not match any user in this service'",
-//            "unknown_user, wrong_password, 'Username and password do not match any user in this service'",
-//            "locked_out_user, secret_sauce, 'Sorry, this user has been locked out.'",
-//    })
-//    void loggingOnWithInvalidCredentials(String username, String password, String errorMessage) {
-//        trudy.attemptsTo(
-//                Enter.theValue(username).into(InputField.called("username")),
-//                Enter.theValue(password).into(InputField.called("password")),
-//
-//                Click.on(Button.called("Login")),
-//
-//                Ensure.that(Text.of(PageElement.called("error-message-container"))).contains(errorMessage)
-//        );
-//    }
+    @DisplayName("When a user provides incorrect credentials they should be refused access")
+    @ParameterizedTest
+    @CsvSource({
+            "standard_user, wrong_password, 'Username and password do not match any user in this service'",
+            "unknown_user, secret_sauce, 'Username and password do not match any user in this service'",
+            "unknown_user, wrong_password, 'Username and password do not match any user in this service'",
+            "locked_out_user, secret_sauce, 'Sorry, this user has been locked out.'",
+    })
+    void loggingOnWithInvalidCredentials(String username, String password, String errorMessage) {
+        trudy.attemptsTo(
+                Enter.theValue(username).into(InputField.called("username")),
+                Enter.theValue(password).into(InputField.called("password")),
+
+                Click.on(Button.called("Login")),
+
+                Ensure.that(Text.of(PageElement.called("error-message-container"))).contains(errorMessage)
+        );
+    }
 }
