@@ -120,6 +120,9 @@
                 <configuration>
                     <source>16</source>
                     <target>16</target>
+                    <compilerArgs>
+                        <arg>-parameters</arg>
+                    </compilerArgs>
                 </configuration>
             </plugin>
             <plugin>
