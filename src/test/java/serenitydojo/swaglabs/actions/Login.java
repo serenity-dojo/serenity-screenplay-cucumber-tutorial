@@ -10,8 +10,8 @@ import net.serenitybdd.screenplay.ui.InputField;
 public class Login {
     public static Performable as(String username, String password) {
         return Task.where("{0} logs in as " + username,
-                Enter.theValue("standard_user").into(InputField.called("Username")),
-                Enter.theValue("secret_sauce").into(InputField.called("Password")),
+                Enter.theValue(username).into(InputField.called("Username")),
+                Enter.theValue(password).into(InputField.called("Password")),
                 Click.on(Button.called("Login"))
         );
     }
