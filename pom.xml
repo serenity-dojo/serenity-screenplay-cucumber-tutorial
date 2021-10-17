@@ -100,6 +100,7 @@
                     </includes>
                     <systemPropertyVariables>
                         <webdriver.base.url>${webdriver.base.url}</webdriver.base.url>
+                        <junit.jupiter.extensions.autodetection.enabled>true</junit.jupiter.extensions.autodetection.enabled>
                     </systemPropertyVariables>
                     <parallel>methodsAndClasses</parallel>
                     <useUnlimitedThreads>true</useUnlimitedThreads>

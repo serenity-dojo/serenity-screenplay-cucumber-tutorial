@@ -1,10 +1,12 @@
 package serenitydojo.swaglabs;
 
+import net.serenitybdd.junit5.StepsInjectorTestInstancePostProcessor;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.actions.Open;
+import net.serenitybdd.screenplay.annotations.CastMember;
 import net.serenitybdd.screenplay.ensure.Ensure;
 import net.serenitybdd.screenplay.questions.Text;
 import net.serenitybdd.screenplay.ui.Button;
@@ -14,6 +16,7 @@ import net.thucydides.core.annotations.Managed;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -28,7 +31,8 @@ public class LoggingOnTests {
     @Managed(driver = "chrome", options = "--headless-mode")
     WebDriver driver;
 
-    Actor trudy = Actor.named("Trudy");
+    @CastMember
+    Actor trudy;
 
     @BeforeEach
     void openTheBrowser() {
@@ -49,8 +53,7 @@ public class LoggingOnTests {
 
     @DisplayName("When a user provides incorrect credentials they should be refused access")
     @ParameterizedTest(name = "Logging on with username {0} and password {1}")
-//    @CsvFileSource(resources = "/test-data/invalid_credentials_with_commas.csv", numLinesToSkip=1)
-//    @CsvFileSource(resources = "/test-data/invalid_credentials.csv", delimiter = '|', numLinesToSkip=1)
+//    @CsvFileSource(resources = "/test-data/invalid_credentials_with_commas.csv")
     @CsvSource(textBlock = """
             standard_user   | wrong_password | Username and password do not match any user in this service
             unknown_user    | secret_sauce   | Username and password do not match any user in this service
