@@ -13,6 +13,7 @@ import net.serenitybdd.screenplay.ui.InputField;
 import net.serenitybdd.screenplay.ui.Link;
 import net.serenitybdd.screenplay.ui.PageElement;
 import net.thucydides.core.annotations.Managed;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -23,9 +24,6 @@ import org.openqa.selenium.WebDriver;
  */
 @DisplayName("Managing the shopping cart")
 public class ShoppingCartTests {
-
-    @Managed(driver = "chrome")//, options = "--headless -mode")
-    WebDriver driver;
 
     @CastMember
     Actor trudy;

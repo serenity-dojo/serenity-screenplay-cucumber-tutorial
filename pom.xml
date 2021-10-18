@@ -11,8 +11,8 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <serenity.version>2.6.1-SNAPSHOT</serenity.version>
-        <serenity.maven.version>2.6.1-SNAPSHOT</serenity.maven.version>
+        <serenity.version>2.7.0-SNAPSHOT</serenity.version>
+        <serenity.maven.version>2.7.0-SNAPSHOT</serenity.maven.version>
         <encoding>UTF-8</encoding>
         <tags></tags>
         <webdriver.base.url></webdriver.base.url>

@@ -28,15 +28,11 @@ import org.openqa.selenium.WebDriver;
 @DisplayName("Logging on to the Swaglabs site")
 public class LoggingOnTests {
 
-    @Managed(driver = "chrome", options = "--headless-mode")
-    WebDriver driver;
-
     @CastMember
     Actor trudy;
 
     @BeforeEach
     void openTheBrowser() {
-        trudy.can(BrowseTheWeb.with(driver));
         trudy.attemptsTo(Open.url("https://www.saucedemo.com/"));
     }
 

@@ -7,6 +7,7 @@ import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.actions.Open;
+import net.serenitybdd.screenplay.annotations.CastMember;
 import net.serenitybdd.screenplay.ensure.Ensure;
 import net.serenitybdd.screenplay.ui.Button;
 import net.serenitybdd.screenplay.ui.InputField;
@@ -21,13 +22,11 @@ import org.openqa.selenium.WebDriver;
 /**
  * Exercise 4
  */
-@DisplayName("Making a purchase")
+//@DisplayName("Making a purchase")
 public class MakingAPurchaseTests {
 
-    @Managed(driver = "chrome")//, options = "--headless -mode")
-    WebDriver driver;
-
-    Actor trudy = Actor.named("Trudy");
+    @CastMember
+    Actor trudy;
 
     @BeforeEach
     void openTheBrowser() {
@@ -39,7 +38,7 @@ public class MakingAPurchaseTests {
         );
     }
 
-    @DisplayName("should be shown a confirmation screen after completing a purchase")
+//    @DisplayName("should be shown a confirmation screen after completing a purchase")
     @Test
     void completingAPurchase() {
         trudy.attemptsTo(
@@ -60,7 +59,7 @@ public class MakingAPurchaseTests {
         );
     }
 
-    @DisplayName("should be shown a confirmation screen after completing a purchase 2")
+//    @DisplayName("should be shown a confirmation screen after completing a purchase 2")
     @Test
     void completingAPurchaseV2() {
         trudy.attemptsTo(

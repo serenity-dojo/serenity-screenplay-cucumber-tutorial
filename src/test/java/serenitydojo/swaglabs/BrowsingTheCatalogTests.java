@@ -27,9 +27,6 @@ import serenitydojo.swaglabs.actions.Login;
 @RunWith(SerenityRunner.class)
 public class BrowsingTheCatalogTests {
 
-    @Managed(driver = "chrome")//, options = "--headless -mode")
-    WebDriver driver;
-
     @CastMember
     Actor trudy;
 
@@ -39,11 +36,6 @@ public class BrowsingTheCatalogTests {
                 Open.url("https://www.saucedemo.com/"),
                 Login.as("standard_user","secret_sauce")
         );
-//        trudy.attemptsTo(
-//                Enter.theValue("standard_user").into(InputField.called("Username")),
-//                Enter.theValue("secret_sauce").into(InputField.called("Password")),
-//                Click.on(Button.called("Login"))
-//        );
     }
 
     @Title("The catalog should show our top product")
