@@ -4,6 +4,7 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.actions.Open;
+import net.serenitybdd.screenplay.annotations.CastMember;
 import net.serenitybdd.screenplay.ensure.Ensure;
 import net.serenitybdd.screenplay.questions.Text;
 import net.serenitybdd.screenplay.questions.page.TheWebPage;
@@ -21,14 +22,11 @@ public class AddingNewTaskTests {
 
     private static final Target NEW_TODO = InputField.withPlaceholder("What needs to be done?");
 
-    @Managed(driver = "chrome")
-    WebDriver driver;
-
+    @CastMember
     Actor trudy = Actor.named("Trudy");
 
     @BeforeEach
     void openTheBrowser() {
-        trudy.can(BrowseTheWeb.with(driver));
         trudy.attemptsTo(Open.url("https://todomvc.com/examples/angularjs/#/"));
     }
 

@@ -1,7 +1,6 @@
 package serenitydojo.swaglabs;
 
 import net.serenitybdd.screenplay.Actor;
-import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.actions.Open;
@@ -12,12 +11,12 @@ import net.serenitybdd.screenplay.ui.Button;
 import net.serenitybdd.screenplay.ui.InputField;
 import net.serenitybdd.screenplay.ui.Link;
 import net.serenitybdd.screenplay.ui.PageElement;
-import net.thucydides.core.annotations.Managed;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.WebDriver;
+
+import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
+import static org.hamcrest.Matchers.equalTo;
 
 /**
  * Exercise 3
@@ -49,6 +48,9 @@ public class ShoppingCartTests {
         );
     }
 
+    /**
+     * Using the should(seeThat(... notation
+     */
     @DisplayName("Adding several items to the cart")
     @Test
     void addingSeveralItemsToTheCart() {
@@ -56,10 +58,9 @@ public class ShoppingCartTests {
                 Click.on(Button.called("Add to cart")
                         .inside(PageElement.called("inventory_item").containingText("Sauce Labs Backpack"))),
                 Click.on(Button.called("Add to cart")
-                        .inside(PageElement.called("inventory_item").containingText("Sauce Labs Bike Light"))),
-
-                Ensure.that(Text.of(PageElement.called("shopping_cart_badge")).asInteger()).isEqualTo(2)
+                        .inside(PageElement.called("inventory_item").containingText("Sauce Labs Bike Light")))
         );
+        trudy.should(seeThat(Text.of(PageElement.called("shopping_cart_badge")).asInteger(), equalTo(2)));
     }
 
     @DisplayName("Removing an item from the cart")

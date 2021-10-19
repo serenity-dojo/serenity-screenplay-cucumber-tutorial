@@ -97,13 +97,15 @@
                 <configuration>
                     <includes>
                         <include>**/*Tests.java</include>
+                        <include>**/*Test.java</include>
+                        <include>**/When*.java</include>
                     </includes>
                     <systemPropertyVariables>
                         <webdriver.base.url>${webdriver.base.url}</webdriver.base.url>
                         <junit.jupiter.extensions.autodetection.enabled>true</junit.jupiter.extensions.autodetection.enabled>
                     </systemPropertyVariables>
-                    <parallel>methodsAndClasses</parallel>
-                    <useUnlimitedThreads>true</useUnlimitedThreads>
+<!--                    <parallel>classes</parallel>-->
+<!--                    <useUnlimitedThreads>true</useUnlimitedThreads>-->
                 </configuration>
                 <executions>
                     <execution>
@@ -152,4 +154,42 @@
             </plugin>
         </plugins>
     </build>
+    <profiles>
+        <profile>
+            <id>with-errors</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-failsafe-plugin</artifactId>
+                        <version>3.0.0-M5</version>
+                        <configuration>
+                            <includes>
+                                <include>**/*Tests.java</include>
+                                <include>**/*Test.java</include>
+                                <include>**/When*.java</include>
+                                <include>**/Failing*.java</include>
+                                <include>**/Errors*.java</include>
+                                <include>**/Compromised*.java</include>
+                            </includes>
+                            <systemPropertyVariables>
+                                <webdriver.base.url>${webdriver.base.url}</webdriver.base.url>
+                                <junit.jupiter.extensions.autodetection.enabled>true</junit.jupiter.extensions.autodetection.enabled>
+                            </systemPropertyVariables>
+                            <!--                    <parallel>classes</parallel>-->
+                            <!--                    <useUnlimitedThreads>true</useUnlimitedThreads>-->
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>integration-test</goal>
+                                    <goal>verify</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>

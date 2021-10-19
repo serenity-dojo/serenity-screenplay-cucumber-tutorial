@@ -3,6 +3,7 @@ package serenitydojo.todomvc;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
 import net.serenitybdd.screenplay.actions.Open;
+import net.serenitybdd.screenplay.annotations.CastMember;
 import net.serenitybdd.screenplay.ensure.Ensure;
 import net.serenitybdd.screenplay.questions.page.TheWebPage;
 import net.serenitybdd.screenplay.ui.InputField;
@@ -15,14 +16,11 @@ import org.openqa.selenium.WebDriver;
 @DisplayName("Opening The Application")
 public class NavigationTests {
 
-    @Managed(driver = "chrome")
-    WebDriver driver;
-
+    @CastMember
     Actor trudy = Actor.named("Trudy");
 
     @BeforeEach
     void openTheBrowser() {
-        trudy.can(BrowseTheWeb.with(driver));
         trudy.attemptsTo(Open.url("https://todomvc.com/examples/angularjs/#/"));
     }
 
