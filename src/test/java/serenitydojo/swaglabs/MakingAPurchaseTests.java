@@ -1,5 +1,6 @@
 package serenitydojo.swaglabs;
 
+import net.serenitybdd.junit5.SerenityJUnit5Extension;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
@@ -12,6 +13,7 @@ import net.serenitybdd.screenplay.ui.PageElement;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 import static serenitydojo.swaglabs.actions.PurchaseActions.*;
 
@@ -19,6 +21,7 @@ import static serenitydojo.swaglabs.actions.PurchaseActions.*;
  * Exercise 4
  */
 @DisplayName("Making a purchase")
+@ExtendWith(SerenityJUnit5Extension.class)
 public class MakingAPurchaseTests {
 
     @CastMember

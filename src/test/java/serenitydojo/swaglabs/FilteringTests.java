@@ -1,5 +1,7 @@
 package serenitydojo.swaglabs;
 
+import net.serenitybdd.junit5.SerenityBDD;
+import net.serenitybdd.junit5.SerenityJUnit5Extension;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.actions.Open;
 import net.serenitybdd.screenplay.annotations.CastMember;
@@ -10,11 +12,13 @@ import net.serenitybdd.screenplay.ui.PageElement;
 import net.serenitybdd.screenplay.ui.Select;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import serenitydojo.swaglabs.actions.Login;
 
 @DisplayName("The products can be filtered")
+@ExtendWith(SerenityJUnit5Extension.class)
 class FilteringTests {
 
     @CastMember

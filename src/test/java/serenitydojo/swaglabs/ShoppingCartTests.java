@@ -1,5 +1,6 @@
 package serenitydojo.swaglabs;
 
+import net.serenitybdd.junit5.SerenityJUnit5Extension;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
@@ -14,6 +15,7 @@ import net.serenitybdd.screenplay.ui.PageElement;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static org.hamcrest.Matchers.equalTo;
@@ -22,6 +24,7 @@ import static org.hamcrest.Matchers.equalTo;
  * Exercise 3
  */
 @DisplayName("Managing the shopping cart")
+@ExtendWith(SerenityJUnit5Extension.class)
 public class ShoppingCartTests {
 
     @CastMember

@@ -1,5 +1,6 @@
 package serenitydojo.swaglabs;
 
+import net.serenitybdd.junit5.SerenityJUnit5Extension;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
@@ -13,6 +14,7 @@ import net.serenitybdd.screenplay.ui.PageElement;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -20,6 +22,7 @@ import org.junit.jupiter.params.provider.CsvSource;
  * Both should fail due to elements not found
  */
 @DisplayName("Logging on to the Swaglabs site with errors")
+@ExtendWith(SerenityJUnit5Extension.class)
 public class ErrorsLoggingOn {
 
     @CastMember

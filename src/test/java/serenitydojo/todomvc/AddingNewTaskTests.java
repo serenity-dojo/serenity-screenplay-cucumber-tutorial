@@ -1,5 +1,6 @@
 package serenitydojo.todomvc;
 
+import net.serenitybdd.junit5.SerenityJUnit5Extension;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
 import net.serenitybdd.screenplay.actions.Enter;
@@ -14,10 +15,12 @@ import net.thucydides.core.annotations.Managed;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
 @DisplayName("Adding tasks to the list")
+@ExtendWith(SerenityJUnit5Extension.class)
 public class AddingNewTaskTests {
 
     private static final Target NEW_TODO = InputField.withPlaceholder("What needs to be done?");

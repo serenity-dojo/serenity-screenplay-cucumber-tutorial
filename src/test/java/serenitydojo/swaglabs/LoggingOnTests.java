@@ -1,8 +1,8 @@
 package serenitydojo.swaglabs;
 
-import net.serenitybdd.junit5.StepsInjectorTestInstancePostProcessor;
+import net.serenitybdd.junit5.SerenityBDD;
+import net.serenitybdd.junit5.SerenityJUnit5Extension;
 import net.serenitybdd.screenplay.Actor;
-import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.actions.Open;
@@ -12,20 +12,18 @@ import net.serenitybdd.screenplay.questions.Text;
 import net.serenitybdd.screenplay.ui.Button;
 import net.serenitybdd.screenplay.ui.InputField;
 import net.serenitybdd.screenplay.ui.PageElement;
-import net.thucydides.core.annotations.Managed;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.CsvSource;
-import org.openqa.selenium.WebDriver;
 
 /**
  * Exercise 1
  */
 @DisplayName("Logging on to the Swaglabs site")
+@ExtendWith(SerenityJUnit5Extension.class)
 public class LoggingOnTests {
 
     @CastMember
@@ -56,7 +54,7 @@ public class LoggingOnTests {
             unknown_user    | wrong_password | Username and password do not match any user in this service
             locked_out_user | secret_sauce   | Sorry, this user has been locked out.
             """,
-            delimiterString="|"
+            delimiterString = "|"
     )
     void loggingOnWithInvalidCredentials(String username, String password, String errorMessage) {
         trudy.attemptsTo(

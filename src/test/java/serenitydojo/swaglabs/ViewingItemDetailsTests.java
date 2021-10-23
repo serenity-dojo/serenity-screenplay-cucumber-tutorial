@@ -1,5 +1,6 @@
 package serenitydojo.swaglabs;
 
+import net.serenitybdd.junit5.SerenityJUnit5Extension;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.annotations.CastMember;
@@ -7,11 +8,13 @@ import net.serenitybdd.screenplay.ensure.Ensure;
 import net.serenitybdd.screenplay.ui.Link;
 import net.serenitybdd.screenplay.ui.PageElement;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import serenitydojo.swaglabs.actions.Login;
 
 @DisplayName("Viewing item details")
+@ExtendWith(SerenityJUnit5Extension.class)
 public class ViewingItemDetailsTests {
 
     @CastMember

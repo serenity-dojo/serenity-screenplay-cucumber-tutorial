@@ -1,28 +1,31 @@
 package serenitydojo.todomvc;
 
+import net.serenitybdd.junit5.SerenityBDD;
+import net.serenitybdd.junit5.SerenityJUnit5Extension;
 import net.serenitybdd.screenplay.Actor;
-import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
 import net.serenitybdd.screenplay.actions.Open;
 import net.serenitybdd.screenplay.annotations.CastMember;
 import net.serenitybdd.screenplay.ensure.Ensure;
 import net.serenitybdd.screenplay.questions.page.TheWebPage;
 import net.serenitybdd.screenplay.ui.InputField;
-import net.thucydides.core.annotations.Managed;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.WebDriver;
+import org.junit.jupiter.api.extension.ExtendWith;
 
+@SerenityBDD
 @DisplayName("Opening The Application")
+@ExtendWith(SerenityJUnit5Extension.class)
 public class NavigationTests {
 
     @CastMember
-    Actor trudy = Actor.named("Trudy");
+    Actor trudy;
 
     @BeforeEach
     void openTheBrowser() {
         trudy.attemptsTo(Open.url("https://todomvc.com/examples/angularjs/#/"));
     }
+
 
     @DisplayName("Should show the application title")
     @Test
