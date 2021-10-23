@@ -19,7 +19,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 /**
  * Both should fail due to elements not found
  */
-@DisplayName("Logging on to the Swaglabs site with errors")
+@DisplayName("Logging on to the Swaglabs site with compromised exceptions")
 @ExtendWith(SerenityJUnit5Extension.class)
 public class CompromisedLoggingOn {
 
